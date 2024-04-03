@@ -1,5 +1,7 @@
 import React from "react";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Checkbox, Form, Input } from "antd";
+import Button from "../components/Button";
+
 export default function Login() {
   const onFinish = (values) => {
     console.log("Success:", values);
@@ -9,6 +11,8 @@ export default function Login() {
   };
   return (
     <>
+    <div className="content">
+      <div>
       <h1>Login</h1>
       <Form
         name="basic"
@@ -51,7 +55,7 @@ export default function Login() {
             },
           ]}
         >
-          <Input.Password />
+          <Input />
         </Form.Item>
 
         <Form.Item
@@ -71,11 +75,11 @@ export default function Login() {
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
+          <Button type="primary" htmlType="submit" name="Submit"/>
         </Form.Item>
       </Form>
+      </div>
+    </div>
     </>
   );
 }

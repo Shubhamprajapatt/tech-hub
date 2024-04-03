@@ -6,6 +6,10 @@
   height: 40vmin;
   pointer-events: none;
 }
+.content span {
+  color: orangered;
+  font-size: 20px !important;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

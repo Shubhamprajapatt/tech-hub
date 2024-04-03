@@ -1,11 +1,16 @@
 import React from "react";
 import "../style.css";
 import background from '../main.jpg'
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+
 
 export default function Home() {
+  const navigate=useNavigate();
+  const handleBack=()=>{
+        navigate(-1);        
+  }
   return (
-    <div className="main" style={{ backgroundImage: `url(${background})` }}>
+    <div className="main relative" style={{ backgroundImage: `url(${background})` }}>
       <div className="navbar"></div>
       <div className="icon">
         <h2 className="logo">TechGeeks</h2>
@@ -47,6 +52,8 @@ export default function Home() {
       <br />
 
       <Outlet/>
+
+      <div className="absolute justify b-2 r-2 p-2 " style={{right:"50px",bottom:"20px"}}><button className="p-3 bg-blue-500 text-white text-xl rounded-2xl hover:bg-gray-200 hover:text-black cursor-pointer" onClick={handleBack}>Go back</button></div>
     </div>
   );
 }
