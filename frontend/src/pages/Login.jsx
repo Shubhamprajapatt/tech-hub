@@ -1,14 +1,20 @@
 import React from "react";
 import { Checkbox, Form, Input } from "antd";
 import Button from "../components/Button";
+import Link from "antd/es/typography/Link";
+import {useNavigate} from "react-router-dom";
 
 export default function Login() {
+  const navigate=useNavigate();
   const onFinish = (values) => {
     console.log("Success:", values);
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+  const handleRegister=()=>{
+    navigate("/register");
+  }
   return (
     <>
     <div className="content">
@@ -75,8 +81,14 @@ export default function Login() {
             span: 16,
           }}
         >
+      <div>
+      <span>Don't have an Account</span><p className="text-white text-xl cursor-pointer" onClick={handleRegister}>Register</p>
+      </div>
+
           <Button type="primary" htmlType="submit" name="Submit"/>
+
         </Form.Item>
+
       </Form>
       </div>
     </div>

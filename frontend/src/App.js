@@ -9,6 +9,7 @@ import NoPage from "./pages/NoPage";
 import SpecificSubject from "./pages/SpecificSubject";
 import Login from "./pages/Login";
 import './App.css'
+import Register from "./pages/Register";
 export default function App() {
   return (
     <BrowserRouter>
@@ -20,7 +21,7 @@ export default function App() {
           <Route path="subjects" element={<Subjects />} />
           <Route path="subject/:id" element={<SpecificSubject />} />
           <Route path="login" element={<Login />} />
-
+          <Route path="register" element={<Register />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

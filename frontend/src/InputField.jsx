@@ -1,10 +1,12 @@
 import React from "react";
 
-export default function InputField(){
+export default function InputField(props){
     return(
-    <div>
-    <lable>Name</lable>
-    <input type="text" placeholder="enter value"/>
-    </div>
+        <div className='p-3'>
+        <label>
+            {props.label}
+        </label>
+        <input type="text" placeholder={props.placeholder} className='p-2 rounded ml-4'/>
+      </div>
     )
 }
