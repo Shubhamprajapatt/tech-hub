@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registration form</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .heading {
+        font-size: 25px;
+        /*background: red;*/
+        background-color: rgba(230, 5, 2, 0.1);
+        line-height: 100px;
+        text-align: center;
+      }
+      .parent {
+        height: 750px;
+        width: 100%;
+        background: #ebe9ea;
+        position: relative;
+      }
+      .child1 {
+        height: 500px;
+        width: 28%;
+        background: #ebe9ea;
+        position: absolute;
+        top: 0px;
+        left: -500px;
+        right: 0px;
+        bottom: 0px;
+        margin: auto;
+        box-shadow: 5px 5px 20px 10px #b8b2ae;
+        border-radius: 50px;
+      }
+      .child2 {
+        height: 500px;
+        width: 28%;
+        background: #ebe9ea;
+        top: 0px;
+        left: 0px;
+        right: -480px;
+        bottom: 0px;
+        margin: auto;
+        position: absolute;
+        box-shadow: 5px 5px 20px 10px #b8b2ae;
+        border-radius: 50px;
+      }
+      .a {
+        height: 30px;
+        width: 40%;
+        background: #ebe9ea;
+        float: left;
+        top: 0px;
+        left: -172px;
+        right: 0px;
+        bottom: 250px;
+        margin: auto;
+        position: absolute;
+        box-shadow: 5px 5px 10px 5px #b8b2ae;
+        border: none;
+        text-align: center;
+      }
+      h1 {
+        height: 30px;
+        width: 80%;
+        background: #ebe9ea;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 400px;
+        margin: auto;
+        position: absolute;
+        text-align: center;
+      }
+      .b {
+        height: 30px;
+        width: 40%;
+        background: #ebe9ea;
+        float: left;
+        top: -50px;
+        left: 0px;
+        right: -170px;
+        bottom: 200px;
+        margin: auto;
+        position: absolute;
+        box-shadow: 5px 5px 10px 5px #b8b2ae;
+        border: none;
+        text-align: center;
+      }
+      .c {
+        height: 30px;
+        width: 80%;
+        background: #ebe9ea;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 100px;
+        margin: auto;
+        position: absolute;
+        box-shadow: 5px 5px 10px 5px #b8b2ae;
+        border: none;
+        text-align: center;
+      }
+      .d {
+        height: 30px;
+        width: 80%;
+        background: #ebe9ea;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: -50px;
+        margin: auto;
+        position: absolute;
+        box-shadow: 5px 5px 10px 5px #b8b2ae;
+        border: none;
+        text-align: center;
+      }
+      .e {
+        height: 30px;
+        width: 80%;
+        background: #ebe9ea;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: -200px;
+        margin: auto;
+        position: absolute;
+        box-shadow: 5px 5px 10px 5px #b8b2ae;
+        border: none;
+        text-align: center;
+        cursor: pointer;
+      }
+      .f {
+        height: 30px;
+        width: 40%;
+        background: #ebe9ea;
+        top: 0px;
+        left: -173px;
+        right: 0px;
+        bottom: 250px;
+        margin: auto;
+        position: absolute;
+        box-shadow: 5px 5px 10px 5px #b8b2ae;
+        border: none;
+        float: left;
+        text-align: center;
+      }
+      .g {
+        height: 30px;
+        width: 40%;
+        background: #ebe9ea;
+        top: 0px;
+        left: 0px;
+        right: -170px;
+        bottom: 250px;
+        margin: auto;
+        float: left;
+        position: absolute;
+        box-shadow: 5px 5px 10px 5px #b8b2ae;
+        border: none;
+        text-align: center;
+      }
+      .h {
+        height: 30px;
+        width: 80%;
+        background: #ebe9ea;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 100px;
+        margin: auto;
+        position: absolute;
+        box-shadow: 5px 5px 10px 5px #b8b2ae;
+        border: none;
+        text-align: center;
+      }
+      .i {
+        height: 30px;
+        width: 80%;
+        background: #ebe9ea;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: -50px;
+        margin: auto;
+        position: absolute;
+        box-shadow: 5px 5px 10px 5px #b8b2ae;
+        border: none;
+        text-align: center;
+      }
+      .j {
+        height: 30px;
+        width: 80%;
+        background: #ebe9ea;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: -200px;
+        margin: auto;
+        position: absolute;
+        box-shadow: 5px 5px 10px 5px #b8b2ae;
+        border: none;
+        text-align: center;
+      }
+      .k {
+        height: 30px;
+        width: 80%;
+        background: #ebe9ea;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: -350px;
+        margin: auto;
+        position: absolute;
+        box-shadow: 5px 5px 10px 5px #b8b2ae;
+        border: none;
+        text-align: center;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heading"><h2>Registration Form</h2></div>
+    <div class="parent">
+      <div class="child1">
+        <h1>WELCOME</h1>
+        <div class="sign1">
+          <input type="SIGN IN" placeholder="SIGN IN" class="a" />
+        </div>
+        <div class="sign2">
+          <input type="SIGN UP" placeholder="SIGN UP" class="b" />
+        </div>
+        <div class="email">
+          <input type="E-mail" placeholder="E-mail" class="c" />
+        </div>
+        <div class="pass">
+          <input type="password" placeholder="password" class="d" />
+        </div>
+        <div class="sign3">
+          <button class="e">Sign in</button>
+        </div>
+      </div>
+      <div class="child2">
+        <h1> Registration page</h1>
+        <div><input type="SIGN IN" placeholder="SIGN IN" class="f" /></div>
+        <div><input type="SIGN UP" placeholder="SIGN UP" class="g" /></div>
+        <div><input type="USERNAME" placeholder="USERNAME" class="h" /></div>
+        <div><input type="E-mail" placeholder="E-mail" class="i" /></div>
+        <div><input type="password" placeholder="password" class="j" /></div>
+        <div><button class="k">Sign up</button></div>
+      </div>
+    </div>
+  </body>
+</html>
