@@ -10,7 +10,7 @@
 
 .heading h1{
 	font-size: 50px;
-	color: #000;
+	color:gainsboro;
 	margin-bottom: 25px;
 	position: relative;
 }
@@ -27,7 +27,7 @@
 
 .heading p{
 	font-size: 18px;
-	color: #666;
+	color:white;
 	/* margin-bottom: 35px; */
 }
 

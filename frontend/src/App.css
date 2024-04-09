@@ -11,6 +11,10 @@
   font-size: 20px !important;
 }
 
+:where(.css-dev-only-do-not-override-42nv3w).ant-form-item .ant-form-item-label >label{
+  font-size: 25px !important;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
