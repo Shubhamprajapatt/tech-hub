@@ -4,6 +4,7 @@ import Button from "../components/Button";
 
 export default function SpecificSubject() {
   const { id } = useParams();
+  const email = localStorage.getItem("email");
   console.log("id: " + id);
   const subjectData = [
     {
@@ -176,14 +177,17 @@ export default function SpecificSubject() {
     return subject.subjectId == id;
   });
   console.log("Filter data", filterData);
-  const navigate=useNavigate();
-  const handlePreview=()=>{
-    alert("Preview function calling")
-    navigate("/login");
-  }
-  const handleDownload=()=>{
-    alert("Download function calling")
-  }
+  const navigate = useNavigate();
+  const handlePreview = () => {
+    if (email) {
+      alert("success");
+    } else {
+      navigate("/login");
+    }
+  };
+  const handleDownload = () => {
+    alert("Download function calling");
+  };
   return (
     <div style={{ margin: "100px" }}>
       <div className="content">
@@ -210,10 +214,16 @@ export default function SpecificSubject() {
             ></img>
           </div>
           <div>
-            
-            <Button name="Preview" backgroundColor="Blue" onclick={()=>handlePreview()}/>
-            <Button name="Download" backgroundColor="Blue" onclick={()=>handleDownload()}/>
-
+            <Button
+              name="Preview"
+              backgroundColor="Blue"
+              onclick={() => handlePreview()}
+            />
+            <Button
+              name="Download"
+              backgroundColor="Blue"
+              onclick={() => handleDownload()}
+            />
           </div>
         </div>
       </div>

@@ -8,6 +8,8 @@ export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("asdasd");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const onFinish = async (values) => {
     console.log("Success:", values.username, values.password);
     //api calling
@@ -19,9 +21,16 @@ export default function Login() {
       .then((res) => {
         console.log("backend response", res);
         if (res.data.status == 1) {
-          alert("success");
+          // alert(`${res.data.message}`);
+          setSuccessMessage(`${res.data.message}`);
+          setErrorMessage("");
+          localStorage.setItem("email", values.username);
+          setTimeout(() => {
+            navigate("/subjects");
+          }, 2000);
         } else {
-          alert(`${res.data.message}`);
+          // alert(`${res.data.message}`);
+          setErrorMessage(`${res.data.message}`);
         }
       })
       .catch((err) => {
@@ -44,6 +53,8 @@ export default function Login() {
         <center>
           <div>
             <h1 className="mb-4">Login</h1>
+            <h2 className="text-green-500 text-xl m-5">{successMessage}</h2>
+            <h2 className="text-red-500 text-xl m-5">{errorMessage}</h2>
             <Form
               name="basic"
               labelCol={{
@@ -116,8 +127,8 @@ export default function Login() {
                 }}
               >
                 <div>
-                  <span>Don't have an Account ? 
-                  <Link to="/register"> Register</Link>
+                  <span>
+                    Don't have an Account ?<Link to="/register"> Register</Link>
                   </span>
                 </div>
 
