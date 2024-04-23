@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  DownOutlined,
+  AppstoreOutlined,
+  MailOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
+import { Menu } from "antd";
 import axios from "axios";
 export default function DashboardHeader() {
   const navigate = useNavigate();
@@ -31,10 +38,39 @@ export default function DashboardHeader() {
       });
   };
 
+  const handleOver = () => {
+    alert("over");
+  };
+
+  const items = [
+    {
+      label: "",
+      key: "SubMenu",
+      icon: <DownOutlined
+    />,
+      children: [
+        {
+          type: "group",
+          label: <Link to="/profile" ><p className="text-black">My Profile</p></Link>,
+          
+        },
+        {
+          type: "group",
+          label: <Link to="/history" ><p className="text-black">My History</p></Link>,
+          
+        },
+      ],
+    },
+  ];
   useEffect(() => {
     getSpecificUserDetails();
   }, [email]);
-  
+
+  const [current, setCurrent] = useState("mail");
+  const onClick = (e) => {
+    console.log("click ", e);
+    setCurrent(e.key);
+  };
   return (
     <div>
       <div className="navbar"></div>
@@ -67,7 +103,19 @@ export default function DashboardHeader() {
             {/* </li> */}
             <li>
               <div className="flex">
-                {email && <p className="text-sm ml-8 p-3 text-white">{name}</p>}
+                {email && (
+                  <>
+                    <p className="text-sm ml-0 p-3 text-white">{name} </p>
+                    <Menu
+                      onClick={onClick}
+                      selectedKeys={[current]}
+                      mode="horizontal"
+                      items={items}
+                      style={{ backgroundColor:"rgb(64,47,47)",width:"80px",height:"50px" ,marginLeft:"-10px"}}
+                    />
+                    
+                  </>
+                )}
                 <p
                   onClick={handleLogout}
                   className="text-white text-xl hover:text-orange-500 font-bold m-5"

@@ -1,1 +1,49 @@
 https://github.com/Shubhamprajapatt/tech-hub.git
+
+
+1. setItem():-   at the time of login
+
+   1. It is localstorage method to use set new data in the key and value pair in local storage.
+
+   2. syntax
+      localStorage.setItem(key, value);
+
+      e.g
+      localStorage.setItem("email","durgesh@mailinator.com");
+
+2. getItem():- after the login
+
+   1. It is localstorage method to use get data by the key name from local storage.
+
+   2. syntax
+      localStorage.getItem(key);
+
+      e.g
+      localStorage.getItem("email");
+
+3. removeItem():- at the time of logout
+   
+   1. It is localstorage method to use remove data by the key name from local storage.
+
+   2. syntax
+      localStorage.removeItem(key);
+
+      e.g
+      localStorage.removeItem("email");
+
+
+import {useEffect} from 'react';
+
+useEffect(()=>{
+   function_name();
+},[])//it is call one time on load only
+
+useEffect(()=>{
+   function_name();
+})//infinte time
+
+useEffect(()=>{
+   function_name();
+},[email])///it is call when update the dependency
+
+//email is an Array dependency

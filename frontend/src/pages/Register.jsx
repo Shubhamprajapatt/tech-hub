@@ -53,6 +53,7 @@ export default function Register() {
               type="text"
               placeholder="Enter First Name"
               value={formData.firstName}
+              color="rgba(0, 0, 0, 0.88)"
               onChange={(e) => {
                 setFormData({ ...formData, firstName: e.target.value });
               }}
@@ -62,6 +63,8 @@ export default function Register() {
               label="Last Name"
               type="text"
               placeholder="Enter Last Name"
+              color="rgba(0, 0, 0, 0.88)"
+
               value={formData.lastName}
               onChange={(e) => {
                 setFormData({ ...formData, lastName: e.target.value });
@@ -73,6 +76,8 @@ export default function Register() {
               type="email"
               placeholder="Enter Email"
               value={formData.email}
+              color="rgba(0, 0, 0, 0.88)"
+
               onChange={(e) => {
                 setFormData({ ...formData, email: e.target.value });
               }}
@@ -83,6 +88,8 @@ export default function Register() {
               type="password"
               placeholder="Enter Password"
               value={formData.password}
+              color="rgba(0, 0, 0, 0.88)"
+
               onChange={(e) => {
                 setFormData({ ...formData, password: e.target.value });
               }}
