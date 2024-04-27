@@ -116,15 +116,15 @@ ul li a:hover{
 }
 
 .content{
-    width: 100%;
+    width: auto;
     height: auto;
-    margin: auto;
+     margin-left:200px; 
     color: aliceblue;
-    position: relative;
-}
-
+    position: relativ       e;  
+  }
 .visit{
     margin-top: 50px;
+    
 }
 
 .content.para{
@@ -132,7 +132,7 @@ ul li a:hover{
     padding-bottom: 25px;
     font-family: Arial;
     letter-spacing: 1.2px;
-    line-height: 30px;
+    line-height: 20px;
 
 }
 
