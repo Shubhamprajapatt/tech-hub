@@ -124,7 +124,7 @@ export default function DashboardHeader() {
                 </p>
               </div>
             </li>
-            <li>
+            {/* <li>
               <div className="search" style={{ marginTop: "4px" }}>
                 <input
                   className="srch"
@@ -136,7 +136,7 @@ export default function DashboardHeader() {
                   <button className="btn">Search</button>
                 </a>
               </div>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

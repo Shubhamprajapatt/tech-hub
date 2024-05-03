@@ -16,6 +16,9 @@
   height: 50px !important;
   width:10px
 }
+:where(.css-dev-only-do-not-override-42nv3w).ant-pagination{
+  margin-left: 300px !important
+}
 
 :where(.css-dev-only-do-not-override-42nv3w).ant-form-item .ant-form-item-label >label{
   font-size: 25px !important;

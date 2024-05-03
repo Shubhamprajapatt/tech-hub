@@ -1,0 +1,56 @@
+CRUD:-
+Create
+Read 
+Update
+Delete
+
+Methods
+
+1. for Get (read the data)
+   1. for all data read in the collection (Users)
+      find().toArray();
+
+      syntax:- collection_name.find().toArray();
+
+      e.g :- await Users.find().toArray();
+
+   2. for one data read in the collection (Users) at one time 
+      findOne({email:email});
+
+      syntax:- collection_name.findOne({email:email});
+
+      e.g :- await Users.findOne({email:email});
+    
+2. for Insert(create the data)
+   1. for create a data in the collection (Users) at one time
+          insertOne({email:email, password:password,lastname:lastname,firstname:firstname,address:address});
+          or
+          insertOne({email, password,lastname,firstname,address});
+
+
+      syntax:- collection_name.insertOne({email:email, password:password,lastname:lastname,firstname:firstname,address:address});
+
+      e.g :- await Users.insertOne({email:email, password:password,lastname:lastname,firstname:firstname,address:address});
+
+3. for Update(update the data)
+   1. for update a data in the collection (Users) at one time
+          updateOne({email:email},{$set:{lastname:lastname,firtsname:firstname}});
+
+      syntax:- collection_name.updateOne({email:email},{$set:{lastname:lastname,firtsname:firstname}});
+
+      e.g :- await Users.updateOne({email:email},{$set:{lastname:lastname,firtsname:firstname}});
+
+4. for Delete (delete the data)
+    1. for delete all data in the collection (Users) at one time
+          delete();
+
+      syntax:- collection_name.delete();
+
+      e.g :- await Users.delete();
+    
+    2. for delete one data in the collection (Users) at one time
+           deleteOne({email:email});
+        
+        syntax:- collection_name.deleteOne({email:email});
+
+      e.g :- await Users.deleteOne({email:email});

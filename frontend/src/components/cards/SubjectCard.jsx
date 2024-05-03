@@ -6,13 +6,14 @@ export default function SubjectCard(props) {
   console.log("props", props);
   return (
     <>
-      <div className="hover:bg-white cursor-pointer hover:shadow rounded ">
+      <div className="grid grid-col-4 hover:bg-white">
         <Link to={`/subject/${props.subject.subjectId}`}>
           <Card
             title={`${props.subject.subjectName}`}
             style={{
-              width: 300,
+              width: 372,
               margin: "10px",
+              padding:"8px"
             }}
           >
             <img
