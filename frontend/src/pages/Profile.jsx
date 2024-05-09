@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import InputField from "../InputField";
 import Button from "../components/Button";
 import { UserOutlined } from "@ant-design/icons";
+import { imageData } from "./ImageContext";
 
 export default function Profile() {
+  const {imageValue,setImageValue}=useContext(imageData);
+  console.log("imageValue: " ,imageValue);
   const email = localStorage.getItem("email");
   const [firstName, setFirstname] = useState("");
   const [lastName, setLastname] = useState("");
@@ -22,6 +25,7 @@ export default function Profile() {
           setLastname(response.data.user.lastname);
           setUsername(response.data.user.email);
           setImage(response.data.user.image);
+          setImageValue(response.data.user.image);
         } else {
           alert(`${response.data.message}`);
         }
@@ -50,6 +54,7 @@ export default function Profile() {
         .then((res) => {
           console.log("backend success response", res);
           setImage(res.data.filename);
+          setImageValue(res.data.filename);
           if (res.data.status == 1) {
             getSpecificUserDetails();
           }

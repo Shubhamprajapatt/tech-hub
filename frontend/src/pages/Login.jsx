@@ -3,6 +3,7 @@ import { Checkbox, Form, Input } from "antd";
 import Button from "../components/Button";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Context from "./Context";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -137,7 +138,10 @@ export default function Login() {
             </Form>
           </div>
         </center>
+
       </div>
+      <Context/>
+
     </>
   );
 }

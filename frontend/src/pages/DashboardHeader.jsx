@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   DownOutlined,
   AppstoreOutlined,
   MailOutlined,
   SettingOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import axios from "axios";
+import { imageData } from "./ImageContext";
 export default function DashboardHeader() {
+  const { imageValue, setImageValue } = useContext(imageData);
+  console.log("ImageValue in DashboardHeader", imageValue);
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const email = localStorage.getItem("email");
@@ -28,6 +32,7 @@ export default function DashboardHeader() {
           setName(
             response.data.user.firstname + " " + response.data.user.lastname
           );
+          setImageValue(response?.data?.user?.image)
         } else {
           alert(`${response.data.message}`);
         }
@@ -46,18 +51,23 @@ export default function DashboardHeader() {
     {
       label: "",
       key: "SubMenu",
-      icon: <DownOutlined
-    />,
+      icon: <DownOutlined />,
       children: [
         {
           type: "group",
-          label: <Link to="/profile" ><p className="text-black">My Profile</p></Link>,
-          
+          label: (
+            <Link to="/profile">
+              <p className="text-black">My Profile</p>
+            </Link>
+          ),
         },
         {
           type: "group",
-          label: <Link to="/history" ><p className="text-black">My History</p></Link>,
-          
+          label: (
+            <Link to="/history">
+              <p className="text-black">My History</p>
+            </Link>
+          ),
         },
       ],
     },
@@ -99,6 +109,28 @@ export default function DashboardHeader() {
             <li>
               <Link to="/contact">Contact_Us</Link>
             </li>
+            <li>
+              {imageValue ? (
+                <img
+                  src={imageValue ? `http://localhost:8080/profile/${imageValue}` : ""}
+                  width={50}
+                  height={50}
+                  style={{ borderRadius: "50%", marginLeft: "5px" }}
+                ></img>
+              ) : (
+                <div
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    padding: "5px",
+                    borderRadius: "50%",
+                    backgroundColor: "red",
+                  }}
+                >
+                  <UserOutlined />
+                </div>
+              )}
+            </li>
             {/* <li> */}
             {/* </li> */}
             <li>
@@ -111,9 +143,13 @@ export default function DashboardHeader() {
                       selectedKeys={[current]}
                       mode="horizontal"
                       items={items}
-                      style={{ backgroundColor:"rgb(64,47,47)",width:"80px",height:"50px" ,marginLeft:"-10px"}}
+                      style={{
+                        backgroundColor: "rgb(64,47,47)",
+                        width: "80px",
+                        height: "50px",
+                        marginLeft: "-10px",
+                      }}
                     />
-                    
                   </>
                 )}
                 <p

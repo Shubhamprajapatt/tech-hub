@@ -25,7 +25,6 @@ Router.get("/home", homeApi);
 //get image data
 Router.get("/profile/:name",function (req, res, next) {
   const name = req.params.name;
-  // res.sendFile(__dirname + "/uploads/" + name);  
   fs.readFile(`C:/Users/Shubham/Desktop/expressnode/nodebasics/expresswithnode/uploads/${name}`,function(err, data){
     console.log("data",data);
        if(err){
