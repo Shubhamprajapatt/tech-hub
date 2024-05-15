@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../components/Button";
 import { subjectData } from "../Data/SubjectsData";
+import axios from "axios";
 export default function SpecificSubject() {
   const { id } = useParams();
   const email = localStorage.getItem("email");
@@ -18,8 +19,26 @@ export default function SpecificSubject() {
       navigate("/login");
     }
   };
-  const handleDownload = () => {
-    alert("Download function calling");
+  const handleDownload = async () => {
+    // alert("Download function calling");
+    // const data = await axios.post(
+    //   `http://localhost:8080/api/createFile/${id}/${filterData[0].subjectName}/upload`,
+    //   { data: filterData[0].syllabus }
+    // );
+    // console.log("data on download", data);
+    // const blob = data.blob();
+    const jsonData=JSON.stringify(filterData[0].syllabus);
+    console.log("jsonParseData",jsonData.replace("[","").replace("]",""));
+    const fileData=jsonData.replace("[","").replace("]","");
+    const url = window.URL.createObjectURL(new Blob([fileData]));
+    const link = document.createElement("a");    
+    link.href = url;
+    link.download = Date.now()+"_"+filterData[0].subjectName+".doc";
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
   };
   return (
     <div style={{ margin: "100px" }}>
