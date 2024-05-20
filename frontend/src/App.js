@@ -26,7 +26,6 @@ export default function App() {
           <Route path="register" element={<Register />} />
           <Route path="profile" element={<Profile />} />
           <Route path="history" element={<History />} />
-
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
