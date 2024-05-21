@@ -47,3 +47,45 @@ useEffect(()=>{
 },[email])///it is call when update the dependency
 
 //email is an Array dependency
+
+
+useReducer:-
+
+1. It is a hooks
+2. it is alernatives of useState
+3. It is useful to manage complex state in any component
+
+how to use
+   import React ,{useReducer} from "react";
+   e.g
+const initialValue=0;
+const reducer=(state,action)=>{
+      switch(action){
+         case "Increament":
+           {
+              return state+1;
+           }
+         case "Decreament":
+           {
+              return state-1;
+           }
+         case "IncBy2":
+           {
+              return state+2;
+           }
+         default:{
+            return state;
+         }
+      }
+}
+   export default function IncDec(){
+      const [state,dispatch]=useReducer(reducer,initialValue);
+      return(
+         <>
+             <button onClick={()=>dispatch("Increament")}>+</button>
+             <span>{state}</span>
+             <button onClick={()=>dispatch("Decreament")}>-</button>
+             <button onClick={()=>dispatch("IncBy2")}>Increament By 2</button>
+         </>
+      )
+   }

@@ -1,5 +1,6 @@
 //db connection module require
 const dbConnect = require("../db/dbConnect");
+// const User=require("../models/user.model");
 async function registerApi(req, res) {
   try {
     console.log("req.body", req.body);
@@ -33,6 +34,7 @@ async function registerApi(req, res) {
           });
         }
       }
+     
     } else {
       res.send({
         message: "All fields are required",
@@ -40,6 +42,7 @@ async function registerApi(req, res) {
       });
     }
   } catch (error) {
+    console.log("error", error);
     res.send({
       message: "Internal Server Error",
       status: 0,

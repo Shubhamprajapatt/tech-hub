@@ -1,5 +1,6 @@
 const express = require('express');
 const Router=express.Router();
+const User=require("../models/user.model");
 const fs=require('fs');
 const multer=require('multer');
 const storage = multer.diskStorage({
@@ -25,6 +26,7 @@ Router.get("/home", homeApi);
 //get image data
 Router.get("/profile/:name",function (req, res, next) {
   const name = req.params.name;
+
   fs.readFile(`C:/Users/Shubham/Desktop/expressnode/nodebasics/expresswithnode/uploads/${name}`,function(err, data){
     console.log("data",data);
        if(err){
@@ -67,6 +69,21 @@ Router.post("/api/alluser-delete",userDeleteController.alluserDeleteApi);
 Router.get("/api/get-specific-user/:email",getUserrController.getSpecificUserApi);
 
 
+
+//user insert using mongoose model route
+
+Router.post("/api/userinsert",async (req,res)=>{
+  const {name,email,password,role}=req.body;
+  const user=new User({name:name,email:email,password:password,role:role});
+  const result=await user.save();
+  if(result){
+    res.send({message:"user inserted successfully",status:1,data:result});
+  }
+  else{
+    res.send({message:"user inserted failed",status:0});
+  }
+})
+
 //require user-password by email.controller
 const userForgotPasswordController = require("../controllers/user-forgot-password.controller");
 //forgot-password api
@@ -76,5 +93,10 @@ Router.post("/api/forgot-password",userForgotPasswordController.userForgotPasswo
 const emailSendApi = require("../controllers/email-sent.controller")
 //email-sent api to the user
 Router.post("/api/email-sent",checkFields,emailSendApi);
+
+const createFileController=require("../controllers/createFile.controller")
+
+//createFile
+Router.post("/api/createFile/:id/:name/upload",createFileController.createFileApi);
 
 module.exports = Router;
